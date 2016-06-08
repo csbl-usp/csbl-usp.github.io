@@ -162,16 +162,15 @@ function prefAttNet(){
 				if(links < addedge){
 					links++;
 					edgeid++;
-					edges.add({from: newnode, to: i, id: edgeid});
-					G.addEdge(newnode,i);
-					auxi = nodes.get(i).edgenum + 1;
+					edges.add({from: newnode, to: ordered[i-1], id: edgeid});
+					G.addEdge(newnode,ordered[i-1]);
+					auxi = nodes.get(ordered[i-1]).edgenum + 1;
 					auxj = nodes.get(newnode).edgenum + 1;
-					nodes.update({id: i, label: i.toString(), edgenum: auxi , value: auxi, title: "Connections: " + auxi});
+					nodes.update({id: ordered[i-1], label: ordered[i-1].toString(), edgenum: auxi , value: auxi, title: "Connections: " + auxi});
 					nodes.update({id: newnode, label: newnode.toString(), edgenum: auxj , value: auxj, title: "Connections: " + auxj, color: "#99ffeb"});
 				}
 			} 
 		}
-		
 	}
 	
 	var avcon = 0;
