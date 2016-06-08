@@ -157,7 +157,8 @@ function prefAttNet(){
 		var links = 0;
 		for(var i=1; i < nodes.length; i++){
 			//nodes.update({id: newnode, label: newnode.toString(), edgenum: 0 , value: 0, title: "Connections: " + auxj, color: "#99ffeb"});
-			if(testLink(nodes.get(i).edgenum) == 1){
+			ordered = nodes.getIds({order: 'edgenum'}).reverse();
+			if(testLink(nodes.get(ordered[i-1]).edgenum) == 1){
 				if(links < addedge){
 					links++;
 					edgeid++;
